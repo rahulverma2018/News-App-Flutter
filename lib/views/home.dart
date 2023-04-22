@@ -5,6 +5,7 @@ import 'package:news_flutter/helper/news.dart';
 import 'package:news_flutter/models/article_model.dart';
 import 'package:news_flutter/models/category_model.dart';
 import 'package:news_flutter/views/article_view.dart';
+import 'package:news_flutter/views/category_news.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -99,7 +100,16 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CategoryNews(
+              category: categoryName.toLowerCase(),
+            ),
+          ),
+        );
+      },
       child: Container(
         margin: EdgeInsets.only(right: 13),
         child: Stack(
